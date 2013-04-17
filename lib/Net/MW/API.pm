@@ -177,7 +177,7 @@ the @entries of dom
 
 =head2 audio_url 
 
-the audio uri of the query word
+the audio url of the query word
     
 =head1 AUTHOR
 
