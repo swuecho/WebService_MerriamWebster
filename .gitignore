@@ -1,0 +1,7 @@
+/Net-MW-API-*
+/.build
+/_build*
+/Build
+MYMETA.*
+!META.json
+/scripts/*

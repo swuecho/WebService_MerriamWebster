@@ -1,0 +1,111 @@
+In the XML, audio references look like this:
+<wav>heart001.wav</wav>
+
+These need to be converted to a URL like this:
+http://media.merriam-webster.com/soundc11/h/heart001.wav
+
+Start with the base URL: http://media.merriam-webster.com/soundc11/
+Add the first letter of the wav file as a subdirectory ("h" in the example above).\*
+Add the name of the wav file.
+\* Regarding the subdirectory element of the URL there are three exceptions:
+
+If the file name begins with "bix", the subdirectory should be "bix".
+If the file name begins with "gg", the subdirectory should be "gg".
+If the file name begins with a number, the subdirectory should be "number".
+
+# NAME
+
+Net::MW::API - use Merriam-Webster dictionay API in Perl 
+
+# SYNOPSIS
+
+	use Net::MW::API;
+	my $mw = Net::MW::API->new(dict => "collegiate", word => "$the-word-to-query", key => "$your-key-here");
+	my $xml = $mw->raw_xml;	 # a string
+	my $dom = $mw->dom; # XML::LibXML::Document
+	my @entries = $mw->entries(); # @entries is list of XML::LibXML::Element
+	my $audio_uri = $mw->audio_url;  # ex. http://media.merriam-webster.com/soundc11/t/test0001.wav
+	
+
+
+
+# DESCRIPTION
+
+Net::MW::API is an api to merriam-webster.com dictionary. It gives you xml result based on your query.
+it use XML::LibXML to process the XML result (very basic). If you need to get the value of specific node, probably
+you need to deal with the xml yourself.  
+
+
+
+# Attributes
+
+## dict
+
+	has 'dict' => (
+    		is => 'rw',
+    		isa => 'Str',
+    		required => 1
+	);
+
+the dictionary you want to use
+
+## word
+
+	has 'word' => (
+	    is => 'rw',
+	    isa => 'Str',
+	    required => 1
+	);
+
+the word to query
+
+## key
+	has 'key' => (
+	    is => 'ro',
+	    isa => 'Str',
+	    required => 1
+	);
+
+## url 
+
+the query url based on $dict, $word, $key
+
+	reference: http://www.dictionaryapi.com/api/v1/references/$dic/xml/$word?key=$key
+
+## raw\_xml
+
+the xml you get based on your query
+
+
+
+## dom
+
+the dom (XML::LibXML::Document) base on your query  
+
+# Method
+
+## entries
+
+the @entries of dom 
+
+## audio\_url 
+
+the audio uri of the query word
+    
+
+# AUTHOR
+
+Hao Wu <echowuhao@gmail.com>
+
+# COPYRIGHT
+
+Copyright 2013- Hao Wu
+
+# LICENSE
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.
+
+# SEE ALSO
+
+[XML::LibXML](http://search.cpan.org/perldoc?XML::LibXML)
