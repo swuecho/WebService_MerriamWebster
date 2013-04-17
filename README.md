@@ -1,18 +1,3 @@
-In the XML, audio references look like this:
-<wav>heart001.wav</wav>
-
-These need to be converted to a URL like this:
-http://media.merriam-webster.com/soundc11/h/heart001.wav
-
-Start with the base URL: http://media.merriam-webster.com/soundc11/
-Add the first letter of the wav file as a subdirectory ("h" in the example above).\*
-Add the name of the wav file.
-\* Regarding the subdirectory element of the URL there are three exceptions:
-
-If the file name begins with "bix", the subdirectory should be "bix".
-If the file name begins with "gg", the subdirectory should be "gg".
-If the file name begins with a number, the subdirectory should be "number".
-
 # NAME
 
 Net::MW::API - use Merriam-Webster dictionay API in Perl 
