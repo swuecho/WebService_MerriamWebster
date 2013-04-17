@@ -75,7 +75,7 @@ the @entries of dom
 
 ## audio\_url 
 
-the audio uri of the query word
+the audio url of the query word
     
 
 # AUTHOR
