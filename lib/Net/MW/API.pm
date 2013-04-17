@@ -148,6 +148,7 @@ the dictionary you want to use
 the word to query
 
 =head2 key
+
 	has 'key' => (
 	    is => 'ro',
 	    isa => 'Str',
