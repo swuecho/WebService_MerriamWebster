@@ -45,6 +45,7 @@ the dictionary you want to use
 the word to query
 
 ## key
+
 	has 'key' => (
 	    is => 'ro',
 	    isa => 'Str',
