@@ -2,7 +2,7 @@ requires 'perl', 'v5.14';
 requires 'XML::LibXML';
 requires 'Moose';
 requires 'Method::Signatures::Simple';
-requires 'URI::Escape'
+requires 'URI::Escape';
 # requires 'Some::Module', 'VERSION';
 
 on test => sub {

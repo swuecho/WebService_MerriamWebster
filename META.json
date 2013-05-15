@@ -38,6 +38,7 @@
          "requires" : {
             "Method::Signatures::Simple" : "0",
             "Moose" : "0",
+            "URI::Escape" : "0",
             "XML::LibXML" : "0",
             "perl" : "v5.14.0"
          }
@@ -60,7 +61,7 @@
          "web" : "https://github.com/swuecho/-Net-MW-API-"
       }
    },
-   "version" : "0.02",
+   "version" : "0.03",
    "x_contributors" : [
       "Hao <echowuhao@gmail.com>"
    ]
