@@ -1,6 +1,6 @@
 package Net::MW::API;
 use v5.14;
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 use Moose;
 use Method::Signatures::Simple;
 use XML::LibXML;
