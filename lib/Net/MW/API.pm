@@ -1,6 +1,6 @@
 package Net::MW::API;
 use v5.14;
-our $VERSION = '0.03';
+our $VERSION = '0.05';
 use Moose;
 use XML::LibXML;
 
