@@ -2,7 +2,6 @@ package Net::MW::API;
 use v5.14;
 our $VERSION = '0.03';
 use Moose;
-use Method::Signatures::Simple;
 use XML::LibXML;
 
 has 'dict' => (
@@ -62,7 +61,8 @@ has 'dom' => (
 );
 
 
-method entries {
+sub entries {
+    my $self = shift;
     my @entries = $self->dom->getElementsByTagName("entry");
 }
 
@@ -83,7 +83,8 @@ method entries {
 #If the file name begins with a number, the subdirectory should be "number".
 
 
-func _subdir($filename) {
+sub _subdir {
+    my $filename = shift;
     given ($filename) {
         when (/^bix/ ) { return "bix"}
         when (/^gg/)  { return "gg" }
@@ -93,7 +94,8 @@ func _subdir($filename) {
 
 }
 
-method audio_url {
+sub audio_url {
+    my $self = shift;
     my $wave = $self->dom->getElementsByTagName("wav")->[0]->string_value;
     "http://media.merriam-webster.com/soundc11/" . _subdir($wave) . "/$wave";
 }
