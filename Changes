@@ -1,7 +1,7 @@
 Revision history for Net-MW-API
 
 {{$NEXT}}
-
+        - use experimental smartmatch
 0.05  2014-06-17 22:20:18 PDT
         - minus dependecy
 0.04  2014-06-17 16:18:18 CDT
