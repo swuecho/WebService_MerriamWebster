@@ -1,6 +1,6 @@
 package Net::MW::API;
 use v5.14;
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 use Moose;
 use XML::LibXML;
 use experimental 'smartmatch'; 
