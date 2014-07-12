@@ -3,70 +3,68 @@ use v5.14;
 our $VERSION = '0.06';
 use Moose;
 use XML::LibXML;
-use experimental 'smartmatch'; 
 
 has 'dict' => (
-    is => 'rw',
-    isa => 'Str',
+    is       => 'rw',
+    isa      => 'Str',
     required => 1
 );
 
 has 'word' => (
-    is => 'rw',
-    isa => 'Str',
+    is       => 'rw',
+    isa      => 'Str',
     required => 1
 );
 
 has 'key' => (
-    is => 'ro',
-    isa => 'Str',
+    is       => 'ro',
+    isa      => 'Str',
     required => 1
 );
-
 
 ## the query format
 ## http://www.dictionaryapi.com/api/v1/references/$dic/xml/$word?key=$key
 
 has 'url' => (
-    is => 'ro',
-    lazy => 1,
-    default => sub { 
+    is      => 'ro',
+    lazy    => 1,
+    default => sub {
         use URI::Escape;
         my $self = shift;
-       "http://www.dictionaryapi.com/api/v1/references/" . uri_escape($self->dict) . "/xml/" . 
-        uri_escape($self->word) . "?key=" . uri_escape($self->key);  
-        }
+        "http://www.dictionaryapi.com/api/v1/references/"
+          . uri_escape( $self->dict ) . "/xml/"
+          . uri_escape( $self->word ) . "?key="
+          . uri_escape( $self->key );
+    }
 );
 
 has 'raw_xml' => (
-    is => 'ro',
-    lazy => 1,
+    is      => 'ro',
+    lazy    => 1,
     builder => '_build_raw_xml',
 );
 
 sub _build_raw_xml {
     use HTTP::Tiny;
-    my $self = shift;
-    my $response = HTTP::Tiny->new->get($self->url);
+    my $self     = shift;
+    my $response = HTTP::Tiny->new->get( $self->url );
     die "Failed!\n" unless $response->{success};
     $response->{content} if length $response->{content};
 }
 
 has 'dom' => (
-    is => 'ro',
-    lazy => 1,
-    default => sub { 
+    is      => 'ro',
+    lazy    => 1,
+    default => sub {
         my $xml = shift->raw_xml;
-        my $dom = XML::LibXML->load_xml(string => $xml);
+        my $dom = XML::LibXML->load_xml( string => $xml );
     },
 );
 
-
 sub entries {
-    my $self = shift;
+    my $self    = shift;
     my @entries = $self->dom->getElementsByTagName("entry");
 }
-
 
 #In the XML, audio references look like this:
 #<wav>heart001.wav</wav>
@@ -83,16 +81,12 @@ sub entries {
 #If the file name begins with "gg", the subdirectory should be "gg".
 #If the file name begins with a number, the subdirectory should be "number".
 
-
 sub _subdir {
     my $filename = shift;
-    given ($filename) {
-        when (/^bix/ ) { return "bix"}
-        when (/^gg/)  { return "gg" }
-        when (/^(\d+)/)  { return $1 }  
-        default      { return substr $_, 0,1}
-    }
-
+    if ( $filename =~ /^bix/ )     { return "bix" }
+    if ( $filename =~ /^gg/ )      { return "gg" }
+    if ( $filename =~ /^(\d+).*/ ) { return $1 }
+    return substr $filename, 0, 1;
 }
 
 sub audio_url {
@@ -100,7 +94,6 @@ sub audio_url {
     my $wave = $self->dom->getElementsByTagName("wav")->[0]->string_value;
     "http://media.merriam-webster.com/soundc11/" . _subdir($wave) . "/$wave";
 }
-
 
 1;
 __END__
