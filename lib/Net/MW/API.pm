@@ -57,7 +57,7 @@ has 'dom' => (
     lazy    => 1,
     default => sub {
         my $xml = shift->raw_xml;
-        my $dom = XML::LibXML->load_xml( string => $xml );
+        return XML::LibXML->load_xml( string => $xml );
     },
 );
 
@@ -84,9 +84,19 @@ sub entries {
 sub _subdir {
     my $filename = shift;
     if ( $filename =~ /^bix/ )     { return "bix" }
-    if ( $filename =~ /^gg/ )      { return "gg" }
-    if ( $filename =~ /^(\d+).*/ ) { return $1 }
-    return substr $filename, 0, 1;
+    elsif ( $filename =~ /^gg/ )      { return "gg" }
+    elsif ( $filename =~ /^(\d+).*/ ) { return $1 }
+    else { return  substr $filename, 0, 1; }
+}
+
+sub _subdir2 {
+    my $filename = shift;
+    for ($filename) {
+        return "bix" if /^bix/;
+        return "gg" if /^gg/;
+        return $1 if  /^(\d+).*/;
+        return substr $filename, 0, 1
+    }
 }
 
 sub audio_url {
