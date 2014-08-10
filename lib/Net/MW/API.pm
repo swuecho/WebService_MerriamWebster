@@ -1,8 +1,9 @@
 package Net::MW::API;
-use v5.14;
+use v5.10;
 our $VERSION = '0.07';
 use Moose;
 use XML::LibXML;
+use URI::Escape;
 
 has 'dict' => (
     is       => 'rw',
@@ -29,7 +30,6 @@ has 'url' => (
     is      => 'ro',
     lazy    => 1,
     default => sub {
-        use URI::Escape;
         my $self = shift;
         "http://www.dictionaryapi.com/api/v1/references/"
           . uri_escape( $self->dict ) . "/xml/"
@@ -91,7 +91,8 @@ sub _subdir {
 
 sub audio_url {
     my $self = shift;
-    my $wave = $self->dom->getElementsByTagName("wav")->[0]->string_value;
+    my $tag = $self->dom->getElementsByTagName("wav") or die "can not find the audio uril for" .  $self->word;
+    my $wave = $tag->[0]->string_value;
     "http://media.merriam-webster.com/soundc11/" . _subdir($wave) . "/$wave";
 }
 
@@ -102,7 +103,7 @@ __END__
 
 =head1 NAME
 
-Net::MW::API - use Merriam-Webster dictionay API in Perl 
+Net::MW::API - use Merriam-Webster dictionary API in Perl 
 
 =head1 SYNOPSIS
 
