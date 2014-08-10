@@ -101,9 +101,12 @@ __END__
 
 =encoding utf-8
 
+=for HTML <a href="https://travis-ci.org/swuecho/WebService_MerriamWebster"><img src="https://travis-ci.org/swuecho/WebService_MerriamWebster.svg?branch=0.09"></a>
+
 =head1 NAME
 
 WebService::MerriamWebster - use Merriam-Webster dictionary API in Perl 
+
 
 =head1 SYNOPSIS
 
