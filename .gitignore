@@ -1,6 +1,7 @@
-/Net-MW-API-*
+/WebService-MerriamWebster-*
 /.build
 /_build*
 /Build
 MYMETA.*
 !META.json
+/.prove

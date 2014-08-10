@@ -12,7 +12,7 @@
       "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
       "version" : "2"
    },
-   "name" : "Net-MW-API",
+   "name" : "WebService-MerriamWebster",
    "no_index" : {
       "directory" : [
          "t",
@@ -36,33 +36,18 @@
       },
       "runtime" : {
          "requires" : {
-            "Moose" : "0",
-            "URI::Escape" : "0",
-            "XML::LibXML" : "0",
-            "perl" : "v5.14.0"
+            "perl" : "5.008005"
          }
       },
       "test" : {
          "requires" : {
-            "Test::More" : "0.88"
+            "Test::More" : "0.96"
          }
       }
    },
    "release_status" : "stable",
-   "resources" : {
-      "bugtracker" : {
-         "web" : "https://github.com/swuecho/Net-MW-API/issues"
-      },
-      "homepage" : "https://github.com/swuecho/Net-MW-API",
-      "repository" : {
-         "type" : "git",
-         "url" : "https://github.com/swuecho/Net-MW-API.git",
-         "web" : "https://github.com/swuecho/Net-MW-API"
-      }
-   },
-   "version" : "0.08",
+   "version" : "0.01",
    "x_contributors" : [
-      "Hao <echowuhao@gmail.com>",
       "Hao Wu <hwu@intellisurvey.com>"
    ]
 }

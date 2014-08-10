@@ -1,6 +1,6 @@
 # NAME
 
-Net::MW::API - use Merriam-Webster dictionary API in Perl 
+WebService::MerriamWebster - use Merriam-Webster dictionary API in Perl 
 
 # SYNOPSIS
 

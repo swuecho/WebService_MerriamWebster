@@ -1,6 +1,6 @@
-package Net::MW::API;
+package WebService::MerriamWebster;
 use v5.10;
-our $VERSION = '0.08';
+our $VERSION = '0.01';
 use Moose;
 use XML::LibXML;
 use URI::Escape;
@@ -103,7 +103,7 @@ __END__
 
 =head1 NAME
 
-Net::MW::API - use Merriam-Webster dictionary API in Perl 
+WebService::MerriamWebster - use Merriam-Webster dictionary API in Perl 
 
 =head1 SYNOPSIS
 
