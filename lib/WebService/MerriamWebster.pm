@@ -107,8 +107,8 @@ WebService::MerriamWebster - use Merriam-Webster dictionary API in Perl
 
 =head1 SYNOPSIS
 
-	use Net::MW::API;
-	my $mw = Net::MW::API->new(dict => "collegiate", word => "$the-word-to-query", key => "$your-key-here");
+	use WebService::MerriamWebster;
+	my $mw = WebService::MerriamWebster->new(dict => "collegiate", word => "$the-word-to-query", key => "$your-key-here");
 	my $xml = $mw->raw_xml;	 # a string
 	my $dom = $mw->dom; # XML::LibXML::Document
 	my @entries = $mw->entries(); # @entries is list of XML::LibXML::Element
@@ -117,7 +117,7 @@ WebService::MerriamWebster - use Merriam-Webster dictionary API in Perl
 
 =head1 DESCRIPTION
 
-Net::MW::API is an api to merriam-webster.com dictionary. It gives you xml result based on your query.
+WebService::MerriamWebster is an api to merriam-webster.com dictionary. It gives you xml result based on your query.
 it use XML::LibXML to process the XML result (very basic). If you need to get the value of specific node, probably
 you need to deal with the xml yourself.  
 
