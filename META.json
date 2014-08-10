@@ -1,5 +1,5 @@
 {
-   "abstract" : "use Merriam-Webster dictionay API in Perl ",
+   "abstract" : "use Merriam-Webster dictionary API in Perl ",
    "author" : [
       "Hao Wu <echowuhao@gmail.com>"
    ],
@@ -51,16 +51,16 @@
    "release_status" : "stable",
    "resources" : {
       "bugtracker" : {
-         "web" : "https://github.com/swuecho/-Net-MW-API-/issues"
+         "web" : "https://github.com/swuecho/Net-MW-API/issues"
       },
-      "homepage" : "https://github.com/swuecho/-Net-MW-API-",
+      "homepage" : "https://github.com/swuecho/Net-MW-API",
       "repository" : {
          "type" : "git",
-         "url" : "https://github.com/swuecho/-Net-MW-API-.git",
-         "web" : "https://github.com/swuecho/-Net-MW-API-"
+         "url" : "https://github.com/swuecho/Net-MW-API.git",
+         "web" : "https://github.com/swuecho/Net-MW-API"
       }
    },
-   "version" : "0.07",
+   "version" : "0.08",
    "x_contributors" : [
       "Hao <echowuhao@gmail.com>",
       "Hao Wu <hwu@intellisurvey.com>"

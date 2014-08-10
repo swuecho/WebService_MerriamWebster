@@ -1,8 +1,6 @@
-[![Build Status](https://travis-ci.org/swuecho/Net-MW-API.svg?branch=master)](https://travis-ci.org/swuecho/Net-MW-API)
-
 # NAME
 
-Net::MW::API - use Merriam-Webster dictionay API in Perl 
+Net::MW::API - use Merriam-Webster dictionary API in Perl 
 
 # SYNOPSIS
 
