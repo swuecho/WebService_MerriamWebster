@@ -101,9 +101,13 @@ __END__
 
 =encoding utf-8
 
-=head1 NAME [![Build Status](https://travis-ci.org/swuecho/WebService_MerriamWebster.svg?branch=master)](https://travis-ci.org/swuecho/WebService_MerriamWebster)
+=head1 NAME 
 
-=for HTML <a href="https://travis-ci.org/swuecho/WebService_MerriamWebster"><img src="https://travis-ci.org/swuecho/WebService_MerriamWebster.svg?branch=0.09"></a>
+=begin html
+
+<a href="https://travis-ci.org/swuecho/WebService_MerriamWebster"><img src="https://travis-ci.org/swuecho/WebService_MerriamWebster.svg?branch=0.09"></a>
+
+=end html
 
 WebService::MerriamWebster - use Merriam-Webster dictionary API in Perl 
 

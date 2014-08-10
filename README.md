@@ -1,4 +1,8 @@
-# NAME \[!\[Build Status\](https://travis-ci.org/swuecho/WebService\_MerriamWebster.svg?branch=master)\](https://travis-ci.org/swuecho/WebService\_MerriamWebster)
+# NAME 
+
+<div>
+    <a href="https://travis-ci.org/swuecho/WebService_MerriamWebster"><img src="https://travis-ci.org/swuecho/WebService_MerriamWebster.svg?branch=0.09"></a>
+</div>
 
 WebService::MerriamWebster - use Merriam-Webster dictionary API in Perl 
 
