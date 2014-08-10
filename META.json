@@ -36,12 +36,15 @@
       },
       "runtime" : {
          "requires" : {
-            "perl" : "5.008005"
+            "Moose" : "0",
+            "URI::Escape" : "0",
+            "XML::LibXML" : "0",
+            "perl" : "v5.14.0"
          }
       },
       "test" : {
          "requires" : {
-            "Test::More" : "0.96"
+            "Test::More" : "0.88"
          }
       }
    },
@@ -57,7 +60,7 @@
          "web" : "https://github.com/swuecho/Net-MW-API"
       }
    },
-   "version" : "0.01",
+   "version" : "0.09",
    "x_contributors" : [
       "Hao <echowuhao@gmail.com>",
       "Hao Wu <hwu@intellisurvey.com>"
