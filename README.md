@@ -1,4 +1,4 @@
-# NAME
+# NAME \[!\[Build Status\](https://travis-ci.org/swuecho/WebService\_MerriamWebster.svg?branch=master)\](https://travis-ci.org/swuecho/WebService\_MerriamWebster)
 
 WebService::MerriamWebster - use Merriam-Webster dictionary API in Perl 
 
