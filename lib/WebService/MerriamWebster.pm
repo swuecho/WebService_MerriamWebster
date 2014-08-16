@@ -33,7 +33,7 @@ has 'url' => (
         my $self = shift;
         "http://www.dictionaryapi.com/api/v1/references/"
           . uri_escape( $self->dict ) . "/xml/"
-          . uri_escape( $self->word ) . "?key="
+          . uri_escape( lc $self->word ) . "?key=" #enforce lowercase 
           . uri_escape( $self->key );
     }
 );
@@ -91,7 +91,7 @@ sub _subdir {
 
 sub audio_url {
     my $self = shift;
-    my $tag = $self->dom->getElementsByTagName("wav") or die "can not find the audio uril for" .  $self->word;
+    my $tag = $self->dom->getElementsByTagName("wav") or die "can not find the audio uril for " .  $self->word;
     my $wave = $tag->[0]->string_value;
     "http://media.merriam-webster.com/soundc11/" . _subdir($wave) . "/$wave";
 }
@@ -103,14 +103,13 @@ __END__
 
 =head1 NAME 
 
+WebService::MerriamWebster - use Merriam-Webster dictionary API in Perl 
+
 =begin html
 
 <a href="https://travis-ci.org/swuecho/WebService_MerriamWebster"><img src="https://travis-ci.org/swuecho/WebService_MerriamWebster.svg?branch=0.09"></a>
 
 =end html
-
-WebService::MerriamWebster - use Merriam-Webster dictionary API in Perl 
-
 
 =head1 SYNOPSIS
 
