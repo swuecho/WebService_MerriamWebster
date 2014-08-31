@@ -91,7 +91,7 @@ sub _subdir {
 
 sub audio_url {
     my $self = shift;
-    my $tag = $self->dom->getElementsByTagName("wav") or die "can not find the audio uril for " .  $self->word;
+    my $tag = $self->dom->getElementsByTagName("wav") or die "can not find the audio uri for " .  $self->word;
     my $wave = $tag->[0]->string_value;
     "http://media.merriam-webster.com/soundc11/" . _subdir($wave) . "/$wave";
 }
