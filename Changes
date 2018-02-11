@@ -1,7 +1,9 @@
 Revision history for WebService-MerriamWebster
 
 {{$NEXT}}
-support v2 api (GENE)
+
+0.12 2018-02-11T00:52:56Z
+    - support v2 api (GENE)
 
 0.11  2014-08-15 20:04:17 PDT
         - error message format, enforce lowercase
