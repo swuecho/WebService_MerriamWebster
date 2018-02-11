@@ -52,6 +52,16 @@ the word to query
             required => 1
         );
 
+## ver
+
+        has 'ver' => (
+              is  => 'ro',
+              isa => 'Str',
+              default => sub { 1 },
+        );
+
+version of api, v1, v2
+
 ## url 
 
 the query url based on $dict, $word, $key

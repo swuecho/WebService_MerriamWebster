@@ -1,6 +1,6 @@
 package WebService::MerriamWebster;
 use v5.10;
-our $VERSION = '0.11';
+our $VERSION = '0.12';
 use Moose;
 use XML::LibXML;
 use URI::Escape;
@@ -9,8 +9,7 @@ has 'dict' => (
     is       => 'rw',
     isa      => 'Str',
     required => 1
-);
-
+); 
 has 'word' => (
     is       => 'rw',
     isa      => 'Str',
@@ -23,18 +22,25 @@ has 'key' => (
     required => 1
 );
 
-## the query format
-## http://www.dictionaryapi.com/api/v1/references/$dic/xml/$word?key=$key
+has 'ver' => (
+     is      => 'ro',
+     isa     => 'Str',
+     default => sub { 1 },
+);
 
 has 'url' => (
     is      => 'ro',
     lazy    => 1,
     default => sub {
         my $self = shift;
-        "http://www.dictionaryapi.com/api/v1/references/"
-          . uri_escape( $self->dict ) . "/xml/"
-          . uri_escape( lc $self->word ) . "?key=" #enforce lowercase 
-          . uri_escape( $self->key );
+        my $format = $self->ver == 1
+             ? 'http://www.dictionaryapi.com/api/v1/references/%s/xml/%s?key=%s'
+             : 'https://www.dictionaryapi.com/api/references/%s/v2/xml/%s?key=%s';
+
+        return sprintf $format,
+            uri_escape( $self->dict ),
+            uri_escape( lc $self->word ),
+            uri_escape( $self->key );
     }
 );
 
@@ -157,6 +163,16 @@ the word to query
 	    isa => 'Str',
 	    required => 1
 	);
+
+=head2 ver
+
+        has 'ver' => (
+              is  => 'ro',
+              isa => 'Str',
+              default => sub { 1 },
+        );
+
+version of api, v1, v2
 
 =head2 url 
 
