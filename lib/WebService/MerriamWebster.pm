@@ -1,6 +1,6 @@
 package WebService::MerriamWebster;
 use v5.10;
-our $VERSION = '0.13';
+our $VERSION = '0.14';
 use Moose;
 use XML::LibXML;
 use URI::Escape;
